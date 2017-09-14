@@ -4,6 +4,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.Reader;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
@@ -32,8 +33,8 @@ public class noteReader {
 			
 		Map<String, Integer> frequency = new HashMap<>();
 		
-		//Map<String, Integer> mentions = new HashMap<>();
-		//Map<String, Integer> topics = new HashMap<>();
+		Map<String, Integer> mentionsMap = new HashMap<>();
+		Map<String, Integer> topicsMap = new HashMap<>();
 		
 		ArrayList<String> mentions= new ArrayList();
 		ArrayList<String> topics = new ArrayList();
@@ -68,8 +69,7 @@ public class noteReader {
 							topics.add(processed);
 						}
 						
-						
-						//if we already have placed this word in the map, we increment its value by 1
+						/*//if we already have placed this word in the map, we increment its value by 1
 						if (frequency.containsKey(processed)) {
 							frequency.put(processed, frequency.get(processed) +1);
 						}
@@ -77,37 +77,44 @@ public class noteReader {
 						//we add this new word to the map and make its incremental value = 1
 						else {
 							frequency.put(processed, 1);
-						}
-						
-						/*//if we already have placed this word in the map, we increment its value by 1
-						if (mentions.containsKey(processed) && processed.charAt(0) == '@') {
-							mentions.put(processed, mentions.get(processed) +1);
-						}
-						
-						//we add this new word to the map and make its incremental value = 1
-						else {
-							mentions.put(processed, 1);
-						}
-						
-						//if we already have placed this word in the map, we increment its value by 1
-						if (topics.containsKey(processed) && processed.charAt(0) == '#') {
-							topics.put(processed, topics.get(processed) +1);
-						}
-						
-						//we add this new word to the map and make its incremental value = 1
-						else {
-							topics.put(processed, 1);
 						}*/
 						
 					}
+					
 				}
 				line = reader.readLine();
+			}
+			for (String a: mentions) {
+				
+				if (mentionsMap.containsKey(a)) {
+					mentionsMap.put(a, mentionsMap.get(a) +1);
+				}
+				
+				//we add this new word to the map and make its incremental value = 1
+				else {
+					mentionsMap.put(a, 1);
+				}
+			}
+			
+			for (String b: topics) {
+				
+				if (topicsMap.containsKey(b)) {
+					topicsMap.put(b, topicsMap.get(b) +1);
+				}
+				
+				//we add this new word to the map and make its incremental value = 1
+				else {
+					topicsMap.put(b, 1);
+				}
+				
 			}
 			
 		///System.out.println(frequency);
 		System.out.println(file.getName());
-		System.out.println(mentions);
-		System.out.println(topics);
+		//System.out.println(mentions);
+		//System.out.println(topics);
+		System.out.println(mentionsMap);
+		System.out.println(topicsMap);
 		
 	}
 }
