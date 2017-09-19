@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Scanner;
 
 public class noteReader {
@@ -110,12 +111,17 @@ public class noteReader {
 			}
 			
 		///System.out.println(frequency);
-		System.out.println(file.getName());
+		//System.out.println(file.getName());
 		//System.out.println(mentions);
 		//System.out.println(topics);
-		System.out.println(mentionsMap);
-		System.out.println(topicsMap);
+		//System.out.println(mentions);
+		//System.out.println(topicsMap);
+		//System.out.println(mentionsMap.entrySet());
+			for(Entry<String, Integer> entry : mentionsMap.entrySet())
+		    {   //print keys and values
+		         System.out.println(entry.getKey() + " : " +entry.getValue());
+		    }
+		}
 		
 	}
-}
 }
