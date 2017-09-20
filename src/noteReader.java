@@ -111,7 +111,7 @@ public class noteReader {
 			}
 			
 		///System.out.println(frequency);
-		//System.out.println(file.getName());
+		System.out.println(file.getName());
 		//System.out.println(mentions);
 		//System.out.println(topics);
 		//System.out.println(mentions);
@@ -121,6 +121,11 @@ public class noteReader {
 		    {   //print keys and values
 		         System.out.println(entry.getKey() + " : " +entry.getValue());
 		    }
+			for(Entry<String, Integer> entry : topicsMap.entrySet())
+		    {   //print keys and values
+		         System.out.println(entry.getKey() + " : " +entry.getValue());
+		    }
+			
 		}
 		
 	}

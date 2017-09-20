@@ -141,8 +141,7 @@ public class readFiles {
 	
 	public void generalReport() {
 		
-		for(File file : files) {
-			printMentions();
+		/*for(File file : files) {
 			System.out.println("-----------------------------");
 			System.out.println("File name: " + file.getName());
 			System.out.println("The number of mentions in this file are as follows:");
@@ -150,18 +149,43 @@ public class readFiles {
 		    {   //print keys and values
 		         System.out.println(entry.getKey() + " : " +entry.getValue());
 		    }
+			System.out.println(((Entry<String, Integer>) mentionsMap).getKey() );
 			System.out.println("-----------------------------");
 			System.out.println("The number of topics in this file are as follows:");
-		    
+			for(Entry<String, Integer> entry : topicsMap.entrySet())
+		    {   //print keys and values
+		         System.out.println(entry.getKey() + " : " +entry.getValue());
+		    }
 			System.out.println("-----------------------------");
 			System.out.println("The number of identifiers in this file are as follows:");
-			
+			for(Entry<String, Integer> entry : identifiersMap.entrySet())
+		    {   //print keys and values
+		         System.out.println(entry.getKey() + " : " +entry.getValue());
+		    }
 			System.out.println("-----------------------------");
 			System.out.println("The number of references in this file are as follows:");
-		
+			for(Entry<String, Integer> entry : referencesMap.entrySet())
+		    {   //print keys and values
+		         System.out.println(entry.getKey() + " : " +entry.getValue());
+		    }
 			System.out.println("-----------------------------");
-			
+			*/
+		System.out.println("-----------------------------");
+		System.out.println("There are " + files.length + " files in this folder.\n");
+		System.out.println("The file names are as follows: ");
+		for (File file : files ) {
+			System.out.print(file.getName() +"\n");
 		}
+		System.out.println("\nThere are four specific identifiers located in these files.");
+		System.out.println("They are as follows: (@ : mentions; # : topics; ! : unique identifier; ^ : reference)\n");
+		System.out.println("The number of mentions in this folder are: " );
+		System.out.println(mentionsMap + "\n");
+		System.out.println("The number of topics in this folder are: " );
+		System.out.println(topicsMap + "\n");
+		System.out.println("The number of identifiers in this folder are: " );
+		System.out.println(identifiersMap + "\n");
+		System.out.println("The number of references in this folder are: " );
+		System.out.println(referencesMap + "\n");
 	}
 	
 }

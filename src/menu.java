@@ -1,17 +1,18 @@
+import java.io.IOException;
 import java.util.Scanner;
 
 public class menu {
 	
-	readFiles newFiles = new readFiles();
-	
+	static readFiles newFiles = new readFiles();
 	boolean exit;
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
+		newFiles.parseWords();
 		menu menu = new menu();
 		menu.runMenu();
 	}
 	
-	public void runMenu() {
+	public void runMenu() throws IOException {
 		welcome();
 		while(!exit) {
 			printMenu();
@@ -50,7 +51,7 @@ public class menu {
 		return choice;
 	}
 	
-	private void performAction(int choice) {
+	private void performAction(int choice) throws IOException {
 		switch(choice) {
 		case 0:
 			exit = true;
