@@ -10,6 +10,7 @@ import java.util.Map.Entry;
 
 public class readFiles {
 	
+	Map<String, Integer> frequency = new HashMap<>();
 	Map<String, Integer> mentionsMap = new HashMap<>();
 	Map<String, Integer> topicsMap = new HashMap<>();
 	Map<String, Integer> identifiersMap = new HashMap<>();
@@ -25,7 +26,30 @@ public class readFiles {
 	
 		File[] files = new File(folderLocation).listFiles();
 		
+	ArrayList<String> fileArray = new ArrayList<String>();
+		
+	public  ArrayList<String> makeArrayFiles() {
+			for (File file : files) {
+				fileArray.add(file.getPath());
+			}
+			return fileArray;
+		}
+	/*	
+	public void  getfirstText() {
+		File text1 = new File(fileArray.get(0));
+		
+	}
 	
+	public readFiles getSecondText() {
+		readFiles text2 = new File(fileArray.get(1));
+		return text2;
+	}
+	
+	public readFiles getThirdText() {
+		readFiles text3 = new File(fileArray.get(2));
+		return text3;
+	}
+	*/
 	public void parseWords() throws IOException {
 	
 		for(File file : files) {
@@ -56,6 +80,14 @@ public class readFiles {
 							String processed = word.toLowerCase();
 							
 							char firstLetter = processed.charAt(0);
+							
+							//get the frequency of each word
+							if (frequency.containsKey(processed)) {
+								frequency.put(processed, frequency.get(processed) +1);
+							}
+							else {
+								frequency.put(processed, 1);
+							}
 							
 							//separating all the identifying words
 							if (firstLetter == '@') {
@@ -111,7 +143,31 @@ public class readFiles {
 			}
 		}
 	
+	public File[] getFiles() {
+		return files;
+	}
+	
+	public int getLength() {
+		return files.length;
+	}
+	public void printLength() {
+		System.out.println("There are " + files.length + " files in this folder.");
+	}
+	
+	public void printFileNames() {
+		//System.out.println("The file names are as follows: ");
+		for (File file : files ) {
+			System.out.print(file.getName() +"\n");
+		}
+	}
+	
+	public void printAllIdentifiers() {
+		System.out.println("\nThere are four specific identifiers located in these files.");
+		System.out.println("They are as follows: (@ : mentions; # : topics; ! : unique identifier; ^ : reference)\n");
+	}
+	
 	public void printMentions() {
+		//System.out.println("The number of mentions in this folder are: " );
 		for(Entry<String, Integer> entry : mentionsMap.entrySet())
 	    {   //print keys and values
 	         System.out.println(entry.getKey() + " : " +entry.getValue());
@@ -119,6 +175,7 @@ public class readFiles {
 	}
 	
 	public void printTopics() {
+		//System.out.println("\nThe number of topics in this folder are: " );
 		for(Entry<String, Integer> entry : topicsMap.entrySet())
 	    {   //print keys and values
 	         System.out.println(entry.getKey() + " : " +entry.getValue());
@@ -126,6 +183,7 @@ public class readFiles {
 	}
 	
 	public void printIdentifiers() {
+		//System.out.println("\nThe number of identifiers in this folder are: " );
 		for(Entry<String, Integer> entry : identifiersMap.entrySet())
 	    {   //print keys and values
 	         System.out.println(entry.getKey() + " : " +entry.getValue());
@@ -133,59 +191,18 @@ public class readFiles {
 	}
 	
 	public void printReferences() {
+		//System.out.println("\nThe number of references in this folder are: " );
 		for(Entry<String, Integer> entry : referencesMap.entrySet())
 	    {   //print keys and values
 	         System.out.println(entry.getKey() + " : " +entry.getValue());
 	    }
 	}
 	
-	public void generalReport() {
-		
-		/*for(File file : files) {
-			System.out.println("-----------------------------");
-			System.out.println("File name: " + file.getName());
-			System.out.println("The number of mentions in this file are as follows:");
-			for(Entry<String, Integer> entry : mentionsMap.entrySet())
-		    {   //print keys and values
-		         System.out.println(entry.getKey() + " : " +entry.getValue());
-		    }
-			System.out.println(((Entry<String, Integer>) mentionsMap).getKey() );
-			System.out.println("-----------------------------");
-			System.out.println("The number of topics in this file are as follows:");
-			for(Entry<String, Integer> entry : topicsMap.entrySet())
-		    {   //print keys and values
-		         System.out.println(entry.getKey() + " : " +entry.getValue());
-		    }
-			System.out.println("-----------------------------");
-			System.out.println("The number of identifiers in this file are as follows:");
-			for(Entry<String, Integer> entry : identifiersMap.entrySet())
-		    {   //print keys and values
-		         System.out.println(entry.getKey() + " : " +entry.getValue());
-		    }
-			System.out.println("-----------------------------");
-			System.out.println("The number of references in this file are as follows:");
-			for(Entry<String, Integer> entry : referencesMap.entrySet())
-		    {   //print keys and values
-		         System.out.println(entry.getKey() + " : " +entry.getValue());
-		    }
-			System.out.println("-----------------------------");
-			*/
-		System.out.println("-----------------------------");
-		System.out.println("There are " + files.length + " files in this folder.\n");
-		System.out.println("The file names are as follows: ");
-		for (File file : files ) {
-			System.out.print(file.getName() +"\n");
-		}
-		System.out.println("\nThere are four specific identifiers located in these files.");
-		System.out.println("They are as follows: (@ : mentions; # : topics; ! : unique identifier; ^ : reference)\n");
-		System.out.println("The number of mentions in this folder are: " );
-		System.out.println(mentionsMap + "\n");
-		System.out.println("The number of topics in this folder are: " );
-		System.out.println(topicsMap + "\n");
-		System.out.println("The number of identifiers in this folder are: " );
-		System.out.println(identifiersMap + "\n");
-		System.out.println("The number of references in this folder are: " );
-		System.out.println(referencesMap + "\n");
+	public void printFrequency() {
+		/*for (String word : frequency.keySet()) {
+			System.out.println(frequency.get(word) + " : " + frequency.);
+		}*/
+		System.out.println(frequency);
 	}
 	
 }

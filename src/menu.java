@@ -4,10 +4,11 @@ import java.util.Scanner;
 public class menu {
 	
 	static readFiles newFiles = new readFiles();
-	boolean exit;
+	static Reports report = new Reports();
+	static boolean exit;
 	
 	public static void main(String[] args) throws IOException {
-		newFiles.parseWords();
+		
 		menu menu = new menu();
 		menu.runMenu();
 	}
@@ -16,8 +17,8 @@ public class menu {
 		welcome();
 		while(!exit) {
 			printMenu();
-			int choice = getInput();
-			performAction(choice);
+			int choice = getInputMenu1();
+			performActionMenu1(choice);
 		}
 	}
 	
@@ -36,7 +37,21 @@ public class menu {
 		System.out.println("0) Exit");
 	}
 	
-	private int getInput() {
+	public static void menuTwo() throws IOException {
+		System.out.println("-----------------------------");
+		newFiles.printLength();
+		System.out.println("The file names are as follows: \n");
+		newFiles.printFileNames();
+		System.out.println("\nWhich file would you like to inspect?");
+		System.out.println("Or type \"0\" to exit.\n");
+		for (int i=0; i <newFiles.getLength(); i++) {
+			System.out.println(i + 1);
+		}
+		int choice = getInputMenu2();
+		performActionMenu2(choice);
+	}
+	
+	private int getInputMenu1() {
 		Scanner sc = new Scanner(System.in);
 		int choice = -1;
 		while(choice < 0 || choice > 3 ) {
@@ -51,18 +66,54 @@ public class menu {
 		return choice;
 	}
 	
-	private void performAction(int choice) throws IOException {
+	private void performActionMenu1(int choice) throws IOException {
 		switch(choice) {
 		case 0:
 			exit = true;
 			System.out.println("Thank you for using our application");
 			break;
-		case 1: newFiles.generalReport();
-		case 2:
-		case 3:
+		case 1: report.generalReport();
+			break;
+		case 2: menuTwo();
+			break;
+		case 3: System.out.println("test");
 		default: 
 			//System.out.println("An error has occured.");
 			
 		}
 	}
+	
+	private static int getInputMenu2() {
+		Scanner sc = new Scanner(System.in);
+		int choice = -1;
+		while(choice < 0 || choice > 3 ) {
+			try {
+				System.out.print("\nEnter your choice:");
+				choice = Integer.parseInt(sc.nextLine());
+			}
+			catch (NumberFormatException e) {
+				System.out.println("Invalid selection: Please try again.");
+			}
+		}
+		return choice;
+	}
+	
+	private static void performActionMenu2(int choice) throws IOException {
+		switch(choice) {
+		case 0:
+			exit = true;
+			System.out.println("Thank you for using our application");
+			break;
+		case 1: report.individualReport1();
+			break;
+		case 2: System.out.println("text2");
+			break;
+		case 3: System.out.println("text3");
+			break;
+		default: 
+			//System.out.println("An error has occured.");
+			
+		}
+	}
+	
 }
