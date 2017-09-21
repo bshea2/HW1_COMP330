@@ -5,17 +5,20 @@ import java.util.Map.Entry;
 import java.util.Scanner;
 
 public class Reports {
-
+	
+	Reports report = new Reports();
 	readFiles newFiles = new readFiles();
 	//readFiles text1 = new readFiles().getfirstText();
 	File[] files = newFiles.getFiles();	
 	ArrayList<String> fileArray = new ArrayList<String>();
 	
 	
+	
 public  ArrayList<String> makeArrayFiles() {
 		for (File file : files) {
 			fileArray.add(file.getPath());
 		}
+		
 		return fileArray;
 	}
 	
@@ -52,6 +55,9 @@ public void generalReport() throws IOException {
 		files.get(0)
 		*/
 		newFiles.printFileNames();
+		report.makeArrayFiles();
+		
+		
 		}
 	
 	}
