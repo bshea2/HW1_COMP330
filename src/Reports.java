@@ -6,21 +6,7 @@ import java.util.Scanner;
 
 public class Reports {
 	
-	//Reports report = new Reports();
 	readFiles newFiles = new readFiles();
-	//readFiles text1 = new readFiles().getfirstText();
-	File[] files = newFiles.getFiles();	
-	ArrayList<String> fileArray = new ArrayList<String>();
-	
-	
-	
-public  ArrayList<String> makeArrayFiles() {
-		for (File file : files) {
-			fileArray.add(file.getPath());
-		}
-		
-		return fileArray;
-	}
 	
 public void generalReport() throws IOException {
 	
@@ -41,11 +27,63 @@ public void generalReport() throws IOException {
 		newFiles.printReferences();
 		System.out.println("-----------------------------");
 	}
-	public void individualReport1()  {
-		newFiles.changeFilePath1();
+
+	public void individualReport1() throws IOException  {
 		
+		newFiles.parseWords1();
+		
+		System.out.println("\n-----------------------------\n");
+		System.out.println("The number of mentions in this folder are: " );
+		newFiles.printMentions1();
+		System.out.println("\nThe number of topics in this folder are: " );
+		newFiles.printTopics1();
+		System.out.println("\nThe number of identifiers in this folder are: " );
+		newFiles.printIdentifiers1();
+		System.out.println("\nThe number of references in this folder are: " );
+		newFiles.printReferences1();
+		System.out.println("\nThe total frequency of all the words in this file are as follows: \n");
+		newFiles.printFrequency1();
+		System.out.println("\n-----------------------------\n");
 		
 		}
+	
+public void individualReport2() throws IOException  {
+		
+		newFiles.parseWords2();
+		
+		System.out.println("\n-----------------------------\n");
+		System.out.println("The number of mentions in this folder are: " );
+		newFiles.printMentions2();
+		System.out.println("\nThe number of topics in this folder are: " );
+		newFiles.printTopics2();
+		System.out.println("\nThe number of identifiers in this folder are: " );
+		newFiles.printIdentifiers2();
+		System.out.println("\nThe number of references in this folder are: " );
+		newFiles.printReferences2();
+		System.out.println("\nThe total frequency of all the words in this file are as follows: \n");
+		newFiles.printFrequency2();
+		System.out.println("\n-----------------------------\n");
+		
+		}
+	
+public void individualReport3() throws IOException  {
+	
+	newFiles.parseWords3();
+	
+	System.out.println("\n-----------------------------\n");
+	System.out.println("The number of mentions in this folder are: " );
+	newFiles.printMentions3();
+	System.out.println("\nThe number of topics in this folder are: " );
+	newFiles.printTopics3();
+	System.out.println("\nThe number of identifiers in this folder are: " );
+	newFiles.printIdentifiers3();
+	System.out.println("\nThe number of references in this folder are: " );
+	newFiles.printReferences3();
+	System.out.println("\nThe total frequency of all the words in this file are as follows: \n");
+	newFiles.printFrequency3();
+	System.out.println("\n-----------------------------\n");
+	
+	}
 	
 	}
 

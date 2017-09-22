@@ -134,9 +134,9 @@ public class menu {
 			break;
 		case 1: report.individualReport1();
 			break;
-		case 2: System.out.println("text2");
+		case 2: report.individualReport2();
 			break;
-		case 3: System.out.println("text3");
+		case 3: report.individualReport3();
 			break;
 		default: 
 			//System.out.println("An error has occured.");
