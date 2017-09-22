@@ -1,10 +1,14 @@
 import java.io.IOException;
 import java.util.Scanner;
+import java.util.Set;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class menu {
 	
 	static readFiles newFiles = new readFiles();
 	static Reports report = new Reports();
+	Search searchWord = new Search();
 	static boolean exit;
 	
 	public static void main(String[] args) throws IOException {
@@ -51,6 +55,30 @@ public class menu {
 		performActionMenu2(choice);
 	}
 	
+	public void menuThree() throws IOException {
+		newFiles.parseWords();
+		int count =0;
+		Set<String> set = newFiles.getFrequency();
+		
+		Scanner sc = new Scanner(System.in);
+		String searchWord = "";
+		
+		System.out.println("-----------------------------");
+		System.out.println("What word would you like to search?\n");
+		searchWord = sc.nextLine();
+	
+		for (String word : set) {
+			
+			Pattern pat = Pattern.compile(".*\\b" + searchWord + "\\b.*");
+			Matcher mat = pat.matcher(word);
+			if(mat.find()) {
+				count++;
+			}
+		}
+		System.out.println(searchWord + " was found " + count + " times.");
+		}
+	
+	
 	private int getInputMenu1() {
 		Scanner sc = new Scanner(System.in);
 		int choice = -1;
@@ -76,7 +104,7 @@ public class menu {
 			break;
 		case 2: menuTwo();
 			break;
-		case 3: System.out.println("test");
+		case 3: menuThree();
 		default: 
 			//System.out.println("An error has occured.");
 			

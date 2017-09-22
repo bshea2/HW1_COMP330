@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Set;
 
 public class readFiles {
 	
@@ -26,8 +27,8 @@ public class readFiles {
 	
 		File[] files = new File(folderLocation).listFiles();
 		
-	ArrayList<String> fileArray = new ArrayList<String>();
-		
+	//ArrayList<String> fileArray = new ArrayList<String>();
+	/*	
 	public  ArrayList<String> makeArrayFiles() {
 			for (File file : files) {
 				fileArray.add(file.getPath());
@@ -53,8 +54,6 @@ public class readFiles {
 	public void parseWords() throws IOException {
 	
 		for(File file : files) {
-			
-			//find the file
 			
 			//use bufferedreader that will read file
 				
@@ -132,7 +131,7 @@ public class readFiles {
 						identifiersMap.put(c, 1);
 					}
 				}
-				for (String d: topics) {
+				for (String d: references) {
 					if (referencesMap.containsKey(d)) {
 						referencesMap.put(d, referencesMap.get(d) +1);
 					}
@@ -145,6 +144,10 @@ public class readFiles {
 	
 	public File[] getFiles() {
 		return files;
+	}
+	
+	public Set<String> getFrequency() {
+		return frequency.keySet();
 	}
 	
 	public int getLength() {
@@ -203,6 +206,27 @@ public class readFiles {
 			System.out.println(frequency.get(word) + " : " + frequency.);
 		}*/
 		System.out.println(frequency);
+	}
+	
+	public String changeFilePath1() {
+		folderLocation = File.separator + "Users" + File.separator + "Brendan"
+				+ File.separator + "eclipse-workspace" + File.separator+ "NotesHW1" + 
+				 File.separator + "testFiles" + File.separator + "test.txt";
+		return folderLocation;
+	}
+	
+	public String changeFilePath2() {
+		folderLocation = File.separator + "Users" + File.separator + "Brendan"
+				+ File.separator + "eclipse-workspace" + File.separator+ "NotesHW1" + 
+				 File.separator + "testFiles" + File.separator + "test2.txt";
+		return folderLocation;
+	}
+	
+	public String changeFilePath3() {
+		folderLocation = File.separator + "Users" + File.separator + "Brendan"
+				+ File.separator + "eclipse-workspace" + File.separator+ "NotesHW1" + 
+				 File.separator + "testFiles" + File.separator + "test3.txt";
+		return folderLocation;
 	}
 	
 }

@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class Reports {
 	
-	Reports report = new Reports();
+	//Reports report = new Reports();
 	readFiles newFiles = new readFiles();
 	//readFiles text1 = new readFiles().getfirstText();
 	File[] files = newFiles.getFiles();	
@@ -41,21 +41,8 @@ public void generalReport() throws IOException {
 		newFiles.printReferences();
 		System.out.println("-----------------------------");
 	}
-	public void individualReport1() {
-		//readFiles text1 = newFiles.getfirstText();
-		/*
-		System.out.println("-----------------------------");
-		System.out.println("This file's name is : " + text1.printFileNames());
-		System.out.println("The number of mentions in this file are: ");
-		
-		System.out.println("The number of topics in this file are: ");
-		System.out.println("The number of identifiers in this file are: ");
-		System.out.println("The number of references in this file are: ");
-		System.out.println("The total frequency of words in this file are: ");
-		files.get(0)
-		*/
-		newFiles.printFileNames();
-		report.makeArrayFiles();
+	public void individualReport1()  {
+		newFiles.changeFilePath1();
 		
 		
 		}
