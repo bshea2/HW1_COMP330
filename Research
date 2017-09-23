@@ -1,0 +1,11 @@
+Below are resources consulted throughout the research process of our assignment:
+
+Research for topological sorting:
+http://www.geeksforgeeks.org/topological-sorting/
+http://www.ece.umd.edu/~neroam/files/641_ProjectReport_RenMao.pdf 
+
+Goal is to see how topological sorting algorithm correlates with ordering of text files. 
+
+JUnit Testing:
+https://www.tutorialspoint.com/junit/junit_questions_answers.htm
+https://www.tutorialspoint.com/junit/junit_test_framework.htm
