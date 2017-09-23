@@ -1,0 +1,10 @@
+Homework 1 Software Engineering:
+
+
+Good resources for topological sorting:
+
+http://www.geeksforgeeks.org/topological-sorting/
+
+http://www.ece.umd.edu/~neroam/files/641_ProjectReport_RenMao.pdf 
+
+Goal is to see how topological sorting algorithm correlates with text files. Idea of topological sorting in graph form is easy to interpret, but trying to find how to merge the algo with text files. -Katelyn 
